@@ -13,10 +13,10 @@ jobs:
         node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Cache node modules
-        id: cacheSetup
+        id: myCacheStep
         uses: actions/cache@v2
         env:
           cache-name: cache-node-modules
@@ -27,9 +27,9 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
+      
       - name: Install dependencies
-        if: steps.cacheSetup.outputs.cache-hit != 'true'
+        if: steps.myCacheStep.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Generate build
