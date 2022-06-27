@@ -31,12 +31,12 @@ jobs:
       - name: Install dependencies
         if: steps.cacheSetup.outputs.cache-hit != 'true'
         run: npm install
-        
-      - name: Run tests 
-        run: npm run test
 
       - name: Generate build
         run: npm run build 
+
+      - name: Run tests 
+        run: npm run test
 
       - name: Deploy to S3 bucket
         uses: jakejarvis/s3-sync-action@master
