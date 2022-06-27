@@ -26,19 +26,16 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
+      uses: actions/checkout@v1"
 
       - name: Install dependencies
-        uses: actions/checkout@v1
         if: steps.cacheSetup.outputs.cache-hit != 'true'
         run: npm install
         
-
       - name: Run tests 
-        uses: actions/checkout@v1
         run: npm run test
 
       - name: Generate build
-        uses: actions/checkout@v1
         run: npm run build 
 
       - name: Deploy to S3 bucket
