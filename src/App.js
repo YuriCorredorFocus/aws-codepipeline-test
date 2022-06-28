@@ -11,6 +11,10 @@ function App() {
         <button onClick={() => setCount(c => c - 1)} className="button">-1</button>
         <button onClick={() => setCount(c => c + 1)} className="button">+1</button>
       </div>
+      <div>
+        <button onClick={() => setCount(c => c - 10)} className="button">-10</button>
+        <button onClick={() => setCount(c => c + 10)} className="button">+10</button>
+      </div>
     </div>
   )
 }
